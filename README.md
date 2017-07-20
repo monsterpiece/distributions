@@ -1,4 +1,4 @@
-<center> <font size=6>Ditributions </font></center>
+<center> <font size=6>Common Ditributions </font></center>
 [TOC]
 
 # 0. Introdution
@@ -17,17 +17,15 @@ Gamma分布描述的是n个事件共同发生的时间的问题，而指数分�
 
 卡方分布描述的是n个独立同分布(iid)的标准正态分布的随机变量的平方和的分布,n就是卡方分布中的自由度,n越高，方差越大（分布越分散），F分布是两个独立的卡方分布的比值
 
-Beta分布是定义在(0,1)区间上的分布，是一种概率分布的分布。
+Beta分布是定义在(0,1)区间上的分布，是一种概率分布的分布,具体定义请自行百度。
 
 # 1. Dependencies
 enviroment:
-
 > python
 
 python package:
 
 >numpy  scipy   matplotlib
->enhanced-markdown parser
 
 # 2. Others
 推荐使用atom或者vs code浏览编辑，因为加入了一些latex公式，所以请使用拓展的markdown解释器（KaTex、TOC支持），推荐[Markdown-preview-enhance插件](https://github.com/shd101wyy/markdown-preview-enhanced),atom和vs code都可以下载使用
