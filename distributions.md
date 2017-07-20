@@ -1,6 +1,6 @@
 
 [TOC]
-# 1. sigmoid 函数
+# 1. Sigmoid 函数
 
 公式
 
@@ -149,15 +149,17 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy.stats as stats
 nu = 1.0
-x = np.linspace(-10,10,1000)
+x = np.linspace(-5,5,1000)
 y1 = stats.t.pdf(x,nu)
 nu = 3.0
 y2 = stats.t.pdf(x,nu)
-nu = 0.1
+nu = 30.0
 y3 = stats.t.pdf(x,nu)
-plt.plot(x,y1,'b-',label='$\nu=1.0$')
-plt.plot(x,y2,'r-',label='$\nu=3.0$')
-plt.plot(x,y3,'g-',label='$\nu=0.1$')
+y4 = stats.norm.pdf(x)
+plt.plot(x,y1,'b-',label='$ \\nu =1.0 $')
+plt.plot(x,y2,'r-',label='$ \\nu = 3.0 $')
+plt.plot(x,y3,'g-',label='$ \\nu = 30.0 $')
+plt.plot(x,y4,'k-.',label='$ normal distribution $')
 plt.title('T distribution')
 plt.xlabel('in/out')
 plt.ylabel('f')
@@ -172,12 +174,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy.stats as stats
 
-mu = 1.0
+mu = 0.
 sigma = 1
 nu = 1.0
 b = 1
-x = np.linspace(0,10,1000)
-y1 = stats.t.pdf(x,nu,loc = mu,scale=sigma)
+x = np.linspace(-5,5,1000)
+y1 = stats.t.pdf(x,nu)
 y2 = stats.norm.pdf(x,mu,sigma)
 y3 = stats.laplace.pdf(x,mu,b)
 plt.plot(x,y1,'b-',label='$students\'t$')
