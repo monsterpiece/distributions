@@ -336,27 +336,27 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy.stats as stats
 
-x = np.linspace(0,3,1000)
+x = np.linspace(0.001,3,1000)
 d1 = 1.0
 d2 = 1.0
 y1 = stats.f.pdf(x,d1,d2)
 d1 = 5.0
 d2 = 2.0
 y2 = stats.f.pdf(x,d1,d2)
-d1 = 2.0
-d2 = 1.0
+d1 = 50.0
+d2 = 10.0
 y3 = stats.f.pdf(x,d1,d2)
 d1 = 100.0
 d2 = 100.0
 y4 = stats.f.pdf(x,d1,d2)
 plt.plot(x,y1,'b-',label='$d1=1.0,d2=1.0$')
 plt.plot(x,y2,'r-',label='$d1=5.0,d2=2.0$')
-plt.plot(x,y3,'g-',label='$d1=2.0,d2=1.0$')
+plt.plot(x,y3,'g-',label='$d1=50.0,d2=10.0$')
 plt.plot(x,y4,'k-',label='$d1=100,d2=100$')
 plt.title('F distribution')
 plt.xlabel('in/out')
 plt.ylabel('f')
-plt.ylim(0,3.0)
+plt.ylim(0,2.5)
 plt.xlim(0,3.0)
 plt.legend()
 plt.show()
