@@ -4,7 +4,7 @@
 # 0. Introdution
 [distribution.md](distributions.md)列出了常见的分布和函数的公式介绍以及绘图说明。目录如下：
 
-![](figure1.png)
+![](f1.png)
 
 其中Sigmoid函数和Hinge函数是在ML中常见的损失函数，可以通过调整相关的中心位置以及曲线坡度控制函数的形态
 
