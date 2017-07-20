@@ -288,8 +288,6 @@ plt.legend()
 plt.show()
 ```
 
-
-
 ## 9. Chi-square Distribution
 
 公式
