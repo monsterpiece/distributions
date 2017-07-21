@@ -370,25 +370,45 @@ Beta(\theta|a,b) = \frac{1}{B(a,b)}\theta^{a-1}(1-\theta)^{b-1} \\
 B(a,b) = \frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}
 $$
 
+## test different beta function
 ```python {cmd:true, matplotlib:true}
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy.stats as stats
 
-x = np.linspace(0,1,500)
-arrays = [0.1,0.1,1.0,1.0,2.0,3.0,8.0,4.0]
-colors = ['b-.','r--','k.','g-']
-for index in range(0,8,2):
-    a = arrays[index]
-    b = arrays[index+1]
-    color = colors[index/2]
-    y = stats.beta.pdf(x,a,b)
-    plt.plot(x,y,color,label='$a=1.0,b=1.0$')
-plt.title('Beta distribution')
-plt.ylim(0,3.0)
-plt.xlabel('in/out')
-plt.ylabel('f')
-plt.legend()
+plt.figure(figsize=(6,21),dpi=80)
+
+x = np.linspace(0,1,1000)
+a_array = [0.1,1.0,2.0,4.0,8.0,100.0]
+b_array = [0.1,1.0,2.0,4.0,8.0,100.0]
+plt1 = plt.subplot(311)
+plt2 = plt.subplot(312)
+plt3 = plt.subplot(313)
+for a in a_array:
+    for b in b_array:
+        if max(a,b)/min(a,b) > 10:
+            continue
+        y = stats.beta.pdf(x,a,b)
+        if a < b:
+            plt1.plot(x,y,label='$a='+str(a)+',b='+str(b)+'$')
+            #plt1.axvline(float(a-1)/(a+b-2),0.0,10.0)
+        elif a == b:
+            plt3.plot(x,y,label='$a='+str(a)+',b='+str(b)+'$')
+        else:
+            plt2.plot(x,y,label='$a='+str(a)+',b='+str(b)+'$')
+plt.suptitle('Beta distribution')
+plt3.set_xlabel('in/out')
+plt2.set_ylabel('f')
+plt1.set_ylim(0.0,10)
+plt2.set_ylim(0.0,10)
+plt3.set_ylim(0.0,10)
+
+plt1.grid(True)
+plt2.grid(True)
+plt3.grid(True)
+plt1.legend()
+plt2.legend()
+plt3.legend()
 #输出
 plt.show()
 ```
