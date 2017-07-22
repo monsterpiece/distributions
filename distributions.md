@@ -8,7 +8,7 @@ $$
 f(x) = \frac{1}{1+e^{-x}}
 $$
 
-```python {cmd:true, matplotlib:true}
+```python {id:'sigmoid',cmd:true, matplotlib:true}
 import matplotlib.pyplot as plt
 import numpy as np
 x=np.linspace(-5,5,1000)  #1000个x值
@@ -24,35 +24,33 @@ plt.legend()
 plt.show()
 ```
 
-# 2. Hinge 函数
+# 2. Relu/Hinge 函数
 
-公式
-
-$$
-f(a,b,x) = 
-\begin{cases}
-0, & \text{x<a} \\
-b(x-a), & \text{x>=a} \\
-\end{cases}
-$$
-
-```python {cmd:true, matplotlib:true}
+```python {id:"relu",cmd:true, matplotlib:true}
 import matplotlib.pyplot as plt
 import numpy as np
 
-def hingefunc(x,mu,sigma):
-    pdf = np.exp(-((x - mu)**2)/(2*sigma**2)) / (sigma * np.sqrt(2*np.pi))
-    return pdf
+x = np.linspace(-1,2,100)
 
-mu = 1
-sigma = 10
-x = np.arange(-10,10,0.1)
-y = hingefunc(x, mu, sigma)
-plt.plot(x,y,label='hinge function')
+def hingefunc(x,a):
+    tmp = a-x
+    return np.maximum(tmp,0.0,tmp)
+
+def relufunc(x,a):
+    tmp = x-a
+    return np.maximum(tmp,0.0,tmp)
+
 plt.axvline(0, color='black')
-plt.title('Hinge function')
+plt.axhline(0, color='black')
+a=0.5
+y = hingefunc(x, a)
+plt.plot(x,y,label='$hingefunc(a=0.5)$')
+y = relufunc(x,a)
+plt.plot(x,y,label='relu function(a=0.5)')
+plt.title('Relu/Hinge function')
 plt.xlabel('in/out')
 plt.ylabel('f')
+plt.ylim(-0.1)
 plt.legend()
 plt.show()
 ```
@@ -67,7 +65,7 @@ f(x|\lambda) = e^{-\lambda}\frac{\lambda^x}{x!} \\
 \lambda > 0
 $$
 
-```python {cmd:true, matplotlib:true}
+```python {id:"poisson",cmd:true, matplotlib:true}
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy.stats as stats
@@ -91,15 +89,16 @@ $$
 f(x|\mu,\sigma^2) = \frac{1}{\sqrt{2\pi}\sigma}\exp{\lbrace -\frac{1}{2\sigma^2}(x-\mu)^2 \rbrace}
 $$
 
-```python {cmd:true, matplotlib:true}
+```python {id:"normal",cmd:true, matplotlib:true}
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy.stats as stats
 
-x = np.linspace(-10,10,100)
+x = np.linspace(0,1,100)
 mu = 1
 sigma = 20
-y = stats.norm.pdf(x, loc=mu, scale=sigma)
+y = stats.norm.pdf(x, loc=0.33, scale=0.08) + 2*stats.norm.pdf(x, loc=1, scale=0.16)
+#y = np.sin(x*2*np.pi)+1.5*x
 plt.plot(x,y,'r-',label='$pdf$')
 plt.axvline(0, color='black')
 plt.title('Normal distribution')
@@ -370,7 +369,6 @@ Beta(\theta|a,b) = \frac{1}{B(a,b)}\theta^{a-1}(1-\theta)^{b-1} \\
 B(a,b) = \frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}
 $$
 
-## test different beta function
 ```python {cmd:true, matplotlib:true}
 import matplotlib.pyplot as plt
 import numpy as np
@@ -411,4 +409,19 @@ plt2.legend()
 plt3.legend()
 #输出
 plt.show()
+```
+
+```python {cmd:true,matplotlib:true}
+import matplotlib.pyplot as plt
+import numpy as np
+import scipy.stats as stats
+
+x = np.linspace(0,1,2000)
+
+
+plt.grid(True)
+plt.legend()
+
+plt.show()
+
 ```

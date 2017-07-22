@@ -2,6 +2,8 @@
 [TOC]
 
 # 0. Introdution
+
+## distribution.md
 [distribution.md](distributions.md)列出了常见的分布和函数的公式介绍以及绘图说明。目录如下：
 
 ![](f1.png)
@@ -19,13 +21,21 @@ Gamma分布描述的是n个事件共同发生的时间的问题，而指数分�
 
 Beta分布是定义在(0,1)区间上的分布，是二项分布概率的分布。
 
+## penalty function
+[penalty_function.md](penalty_function.md)是满足两侧高中间低且波谷偏向一侧波峰的函数。
+
+## cluster
+[SpectralClustering.m](SpectralClustering.m)是无向图谱聚类的实现。
+
 # 1. Dependencies
 enviroment:
-> python
+> python matlab(octave)
 
 python package:
 
 >numpy  scipy   matplotlib
+
+为了能完美显示，建议使用Mathjax解析数学公式部分
 
 # 2. Others
 推荐使用atom或者vs code浏览编辑，因为加入了一些latex公式，所以请使用拓展的markdown解释器（KaTex、TOC支持），推荐[Markdown-preview-enhance插件](https://github.com/shd101wyy/markdown-preview-enhanced),atom和vs code都可以下载使用
