@@ -44,9 +44,9 @@ plt.axvline(0, color='black')
 plt.axhline(0, color='black')
 a=0.5
 y = hingefunc(x, a)
-plt.plot(x,y,label='$hingefunc(a=0.5)$')
+plt.plot(x,y,label='$hingefunc(a='+str(a)+')$')
 y = relufunc(x,a)
-plt.plot(x,y,label='relu function(a=0.5)')
+plt.plot(x,y,label='relu function(a='+str(a)+')')
 plt.title('Relu/Hinge function')
 plt.xlabel('in/out')
 plt.ylabel('f')
@@ -73,7 +73,7 @@ import scipy.stats as stats
 x = np.arange(0,10)
 _lambda = 2
 y = stats.poisson.pmf(x, _lambda)
-plt.plot(x,y,label='$\lambda=2.0$')
+plt.plot(x,y,label='$\lambda='+str(_lambda)+'$')
 plt.title('Poisson distribution')
 plt.xlabel('in/out')
 plt.ylabel('f')
@@ -99,7 +99,7 @@ mu = 1
 sigma = 20
 y = stats.norm.pdf(x, loc=0.33, scale=0.08) + 2*stats.norm.pdf(x, loc=1, scale=0.16)
 #y = np.sin(x*2*np.pi)+1.5*x
-plt.plot(x,y,'r-',label='$pdf$')
+plt.plot(x,y,'r-',label='$norm pdf(\mu = '+str(mu)+', \sigma = '+str(sigma)+')$')
 plt.axvline(0, color='black')
 plt.title('Normal distribution')
 plt.xlabel('in/out')
@@ -124,9 +124,10 @@ x = np.linspace(-10,10,500)
 mu = 0
 b = 2
 y = stats.laplace.pdf(x, loc=mu, scale=b)
-plt.plot(x,y,'r-',label='$pdf$')
+
+plt.plot(x,y,'r-',label='$\mu = '+str(mu)+', b = '+str(b)+'$')
 plt.axvline(0, color='black')
-plt.title('Normal distribution')
+plt.title('Laplace distribution')
 plt.xlabel('in/out')
 plt.ylabel('f')
 
@@ -166,6 +167,7 @@ plt.ylabel('f')
 plt.legend()
 plt.show()
 ```
+
 ## 对比上述分布
 
 ```python {cmd:true, matplotlib:true}
@@ -187,10 +189,11 @@ plt.plot(x,y3,'g-',label='$laplace distribution$')
 plt.title('T distribution')
 plt.xlabel('in/out')
 plt.ylabel('f')
-#输出
+
 plt.legend()
 plt.show()
 ```
+
 # 7. Gamma Distribution
 
 公式
@@ -294,7 +297,7 @@ $$
 f(x|n) = \frac{1}{2^{n/2}\Gamma(\frac{n}{2})}x^{n/2-1}e^{-x/2} \\
 其中 x > 0 \\
 f(x|n)是\Gamma(x|a,b)在a=n/2,b=2的特殊情况 \\
-a 在卡方分布中被称为自由度
+n 在卡方分布中被称为自由度
 $$
 
 ```python {cmd:true, matplotlib:true}
@@ -302,18 +305,18 @@ import numpy as np
 import scipy.stats as stats
 import matplotlib.pyplot as plt
 x = np.linspace(0,8,1000)
-a = 2.0
-y1= stats.chi2.pdf(x,a)
+n = 2.0
+y1= stats.chi2.pdf(x,n)
 
-a = 3.
-y2= stats.chi2.pdf(x,a)
+n = 3.
+y2= stats.chi2.pdf(x,n)
 
-a = 5.0
-y3= stats.chi2.pdf(x,a)
+n = 5.0
+y3= stats.chi2.pdf(x,n)
 
-plt.plot(x,y1,"g-",label='$a=2.0$')
-plt.plot(x,y2,"b-",label='$a=3.0$')
-plt.plot(x,y3,"r-",label='$a=5.0$')
+plt.plot(x,y1,"g-",label='$n=2.0$')
+plt.plot(x,y2,"b-",label='$n=3.0$')
+plt.plot(x,y3,"r-",label='$n=5.0$')
 plt.title('Chi-square distribution')
 plt.ylabel('f')
 plt.xlabel('in/out')
@@ -404,24 +407,10 @@ plt3.set_ylim(0.0,10)
 plt1.grid(True)
 plt2.grid(True)
 plt3.grid(True)
+
 plt1.legend()
 plt2.legend()
 plt3.legend()
-#输出
-plt.show()
-```
-
-```python {cmd:true,matplotlib:true}
-import matplotlib.pyplot as plt
-import numpy as np
-import scipy.stats as stats
-
-x = np.linspace(0,1,2000)
-
-
-plt.grid(True)
-plt.legend()
 
 plt.show()
-
 ```
