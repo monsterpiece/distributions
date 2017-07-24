@@ -16,7 +16,7 @@ $$
 
 ## Matlab code
 
-if you have a <font color='green'><i>matlab</i></font> rather than a <font color='red'><i>octave</i></font>, change the the "cmd" value to "matlab" in this markdown file.
+if you have a <font color='green'><i>matlab</i></font> rather than an <font color='red'><i>octave</i></font>, change the the "cmd" value to "matlab" in this markdown file.
 
 ```matlab {id:"Penalty Function",cmd:"octave",output:"markdown"}
 
