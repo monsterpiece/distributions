@@ -3,7 +3,7 @@
 
 # 0. Introdution
 
-## distribution.md
+## 0.1 distribution.md
 [distribution.md](distributions.md)列出了常见的分布和函数的公式介绍以及绘图说明。目录如下：
 
 ![](f1.png)
@@ -20,9 +20,21 @@ Gamma分布描述的是n个事件共同发生的时间的问题，而指数分�
 
 Beta分布是定义在(0,1)上的分布，通常被用作二项分布概率的分布的先验。
 
-## penalty function
+## 0.2 penalty function
 
 [penalty_function.md](penalty_function.md)是满足两侧高中间低且波谷偏向一侧波峰的函数。
+
+## 0.3 fake.py
+
+这是生成虚假的交易数据的脚本，主要实现两个功能：
+- generateNoise: 从原始交易中抹去部分交易，或者构造两个地址间不存在的交易 
+- generateFake: 构造虚假的地址，并透过这些地址向重要的节点(supportAddress)存取以提高自己的重要性, 该函数主要是生成这些交易数据
+
+另外还有一些函数可能需要解释:
+- generateFakeAddress:生成虚假的地址
+- readAddress：从文件中读取地址列表，可以将重要的地址保存在文件中，一行一个
+- Transaction类：存储一次交易信息的类
+
 
 # 1. Dependencies
 enviroment:
